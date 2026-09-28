@@ -1,13 +1,8 @@
-class Solution(object):
+class Solution:
     def check(self, nums):
-        count=0
-        n=len(nums)
-
-        for i in range(n):
-            if nums[i]>nums[(i+1)%n]:
-                count+=1
-        
-        if count<=1:
-            return True
-        else:
-            return False
+        sort=sorted(nums)
+        for i in range(len(nums)):
+            rotated=nums[i:]+nums[:i]
+            if rotated==sort:
+                return True
+        return False
